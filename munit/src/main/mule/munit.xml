@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="40a54347-bfd4-4cfc-a355-9d9393bafc04" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="munitFlow" doc:id="5d02d4e5-903a-44e1-8ca4-dbe6417d562d" >
+		<http:listener doc:name="Listener" doc:id="d53cb6a0-9edc-47e8-b9db-b8ec7c3a0b42" config-ref="HTTP_Listener_config" path="/MUNIT"/>
+		<set-payload doc:name="Set Payload" doc:id="7219e472-312f-423c-8af8-2e9587f5ceda" value='#["Demo on MUNIT Basics"]'/>
+	</flow>
+</mule>
